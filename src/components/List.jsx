@@ -2,6 +2,10 @@ import React from "react";
 
 import "./List.css";
 
-export default function List() {
-  return("I am a list component")
+export default function List({ id, place }) {
+  return (
+    <ul>
+      <li id={id}>{place}</li>
+    </ul>
+  );
 }
