@@ -2,6 +2,8 @@ import { useState } from "react";
 
 import { List } from "./components";
 
+import { images } from "./constants";
+
 import "./App.css";
 
 const placesToVisit = [
@@ -18,12 +20,13 @@ const placesToVisit = [
     item: "Visit Central Park",
   },
 ];
-console.log(placesToVisit)
+
 
 function App() {
   return (
     <div className="App">
       <h1>NYC Trip Planner</h1>
+      <img src={images.logo} />
       {placesToVisit.map((li, index) => (
         <List id={index} place={li.item} />
       ))}
