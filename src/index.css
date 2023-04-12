@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@300;400;700&display=swap');
+
 :root {
+  font-family: 'Gaegu', cursive;
   color-scheme: light dark;
   /* color: rgba(255, 255, 255, 0.87); */
   /* background-color: #242424; */
