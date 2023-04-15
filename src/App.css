@@ -4,3 +4,11 @@
   padding: 2rem;
   text-align: center;
 }
+.app_list-container {
+  border: 1px solid black;
+
+  display: block;
+  margin: 0 auto;
+  max-width: 320px;
+}
+

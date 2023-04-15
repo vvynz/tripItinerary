@@ -21,15 +21,16 @@ const placesToVisit = [
   },
 ];
 
-
 function App() {
   return (
     <div className="App">
       <h1>NYC Trip Planner</h1>
       <img src={images.logo} />
-      {placesToVisit.map((li, index) => (
-        <List key={index} place={li.item} />
-      ))}
+      <section className="app_list-container">
+        {placesToVisit.map((li, index) => (
+          <List key={index} place={li.item} />
+        ))}
+      </section>
     </div>
   );
 }
