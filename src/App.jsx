@@ -4,7 +4,7 @@ import { List } from "./components";
 
 import { images } from "./constants";
 
-import "./App.css";
+import "./App.scss";
 
 const placesToVisit = [
   {
