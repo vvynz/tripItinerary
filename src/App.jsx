@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import { Form, List } from "./components";
 
@@ -22,12 +22,17 @@ const placesToVisit = [
 ];
 
 function App() {
+  const [listItems, setListItems] = useState([]);
+  const [formData, setFormData] = useState({
+    thingsToDo: ""
+  });
+
   return (
     <div className="App">
       <h1>NYC Trip Planner</h1>
       <img src={images.logo} />
       <section className="app_list-container">
-        <Form />
+        <Form listItems={listItems} setListItems={setListItems} formData={formData} setFormData={setFormData} />
         {placesToVisit.map((li, index) => (
           <List key={index} place={li.item} />
         ))}
