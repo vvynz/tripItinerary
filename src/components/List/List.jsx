@@ -4,8 +4,8 @@ import "./List.scss";
 
 export default function List({ id, place }) {
   return (
-    <ul>
-      <li id={id}>{place}</li>
-    </ul>
+    <ol>
+      <li key={id}>{place}</li>
+    </ol>
   );
 }

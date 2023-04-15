@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import { List } from "./components";
+import { Form, List } from "./components";
 
 import { images } from "./constants";
 
@@ -27,6 +27,7 @@ function App() {
       <h1>NYC Trip Planner</h1>
       <img src={images.logo} />
       <section className="app_list-container">
+        <Form />
         {placesToVisit.map((li, index) => (
           <List key={index} place={li.item} />
         ))}
