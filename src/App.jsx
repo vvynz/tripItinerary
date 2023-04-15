@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import { Form, List } from "./components";
 
@@ -22,17 +22,28 @@ const placesToVisit = [
 ];
 
 function App() {
-  const [listItems, setListItems] = useState([]);
+  const [listItems, setListItems] = useState(
+    () => JSON.parse(localStorage.getItem("listItems")) || []
+  );
   const [formData, setFormData] = useState({
-    thingsToDo: ""
+    thingsToDo: "",
   });
+
+  useEffect(() => {
+    localStorage.setItem("listItems", JSON.stringify(listItems));
+  }, [listItems]);
 
   return (
     <div className="App">
       <h1>NYC Trip Planner</h1>
       <img src={images.logo} />
       <section className="app_list-container">
-        <Form listItems={listItems} setListItems={setListItems} formData={formData} setFormData={setFormData} />
+        <Form
+          listItems={listItems}
+          setListItems={setListItems}
+          formData={formData}
+          setFormData={setFormData}
+        />
         {placesToVisit.map((li, index) => (
           <List key={index} place={li.item} />
         ))}
