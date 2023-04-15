@@ -28,7 +28,7 @@ function App() {
       <h1>NYC Trip Planner</h1>
       <img src={images.logo} />
       {placesToVisit.map((li, index) => (
-        <List id={index} place={li.item} />
+        <List key={index} place={li.item} />
       ))}
     </div>
   );
