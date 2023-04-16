@@ -7,4 +7,7 @@
   /* background-color: #242424; */
   color: #242424;
   background-color: rgba(255, 255, 255, 0.87);
+
+  --grey-color: rgb(114, 114, 114, 0.85);
+  
 }

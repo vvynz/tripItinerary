@@ -44,8 +44,8 @@ function App() {
           formData={formData}
           setFormData={setFormData}
         />
-        {placesToVisit.map((li, index) => (
-          <List key={index} place={li.item} />
+        {listItems.map((item, index) => (
+          <List key={index} place={item.thingsToDo} />
         ))}
       </section>
     </div>
