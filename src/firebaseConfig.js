@@ -8,7 +8,7 @@ const firebaseConfig = {
 };
 
 // initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 
 // initialize database
-const database = getDatabase(app);
+export const database = getDatabase(app);

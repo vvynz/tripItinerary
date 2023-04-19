@@ -1,9 +1,16 @@
 import React, { useState, useEffect } from "react";
 
+// Firebase & databases
+import { app, database } from "./firebaseConfig";
+import { ref, push } from "firebase/database";
+
+// Components
 import { Form, List } from "./components";
 
+// Assests - images
 import { images } from "./constants";
 
+// stylesheets
 import "./App.scss";
 
 const placesToVisit = [
@@ -33,6 +40,8 @@ function App() {
     localStorage.setItem("listItems", JSON.stringify(listItems));
   }, [listItems]);
 
+  const toDoListInDB = ref(database, "thingsToDo");
+
   return (
     <div className="App">
       <h1>NYC Trip Planner</h1>
@@ -43,6 +52,8 @@ function App() {
           setListItems={setListItems}
           formData={formData}
           setFormData={setFormData}
+          db={database}
+          dbRef={toDoListInDB}
         />
         {listItems.map((item, index) => (
           <List key={index} place={item.thingsToDo} />

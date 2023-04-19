@@ -5,6 +5,8 @@ export default function Form({
   setListItems,
   formData,
   setFormData,
+  db,
+  dbRef
 }) {
   const onSubmit = (e) => {
     e.preventDefault();
