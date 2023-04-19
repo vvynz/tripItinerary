@@ -29,9 +29,10 @@ const placesToVisit = [
 ];
 
 function App() {
-  const [listItems, setListItems] = useState(
-    () => JSON.parse(localStorage.getItem("listItems")) || []
-  );
+  const [listItems, setListItems] = useState([]);
+  // useState(
+  //   () => JSON.parse(localStorage.getItem("listItems")) || []
+  // );
 
   const [formData, setFormData] = useState({
     thingsToDo: "",
@@ -42,6 +43,7 @@ function App() {
   }, [listItems]);
 
   const toDoListInDB = ref(database, "thingsToDo");
+
 
   onValue(toDoListInDB, function (snapshot) {
     let listItems = Object.entries(snapshot.val())
@@ -54,9 +56,24 @@ function App() {
 
   const addListItem = (item) => {
     let itemID = item[0];
+    let itemVal;
 
-    console.log(itemID)
-  }
+    for (let i in item[1]) {
+      itemVal = item[1][i];
+    }
+
+    // console.log(itemVal);
+
+    const newItem = {
+      id: itemID,
+      thingsToDo: itemVal
+    }
+
+    const newItems = [...listItems, newItem];
+
+    setListItems(newItems);
+  };
+  
 
   return (
     <div className="App">
