@@ -8,7 +8,7 @@ export default function Form({
   formData,
   setFormData,
   db,
-  dbRef
+  dbRef,
 }) {
   const onSubmit = (e) => {
     e.preventDefault();
@@ -20,11 +20,17 @@ export default function Form({
     const newItems = [...listItems, newItem];
 
     // add new list item to db
-    push(dbRef, newItem);
+    push(dbRef, newItem)
+      .then(() => {
+        alert("Added to db!");
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
 
     setFormData({
-      thingsToDo: ""
-    })
+      thingsToDo: "",
+    });
   };
 
   const setFormChange = (e) => {
@@ -39,9 +45,6 @@ export default function Form({
     setFormData(newData);
   };
 
-  console.log("list item=", listItems);
-  console.log("formData=", formData);
-
   return (
     <form onSubmit={onSubmit}>
       <input
@@ -51,9 +54,7 @@ export default function Form({
         placeholder="things to do..."
         name="thingsToDo"
       />
-      <button type="submit">
-        Add
-      </button>
+      <button type="submit">Add</button>
     </form>
   );
 }
