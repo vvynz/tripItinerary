@@ -13,9 +13,7 @@ export default function Form({
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const newItem = {
-      thingsToDo: formData.thingsToDo,
-    };
+    const newItem = formData.thingsToDo;
 
     // const newItems = [...listItems, newItem];
 
@@ -50,7 +48,7 @@ export default function Form({
       <input
         type="text"
         value={formData.thingsToDo}
-        onChange={setFormChange}
+        onChange={(e) => setFormChange(e)}
         placeholder="things to do..."
         name="thingsToDo"
       />
