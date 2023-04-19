@@ -1,5 +1,7 @@
 import React from "react";
 
+import { push } from "firebase/database";
+
 export default function Form({
   listItems,
   setListItems,
@@ -12,13 +14,13 @@ export default function Form({
     e.preventDefault();
 
     const newItem = {
-      id: 1,
       thingsToDo: formData.thingsToDo,
     };
 
     const newItems = [...listItems, newItem];
 
-    setListItems(newItems);
+    // add new list item to db
+    push(dbRef, newItem);
 
     setFormData({
       thingsToDo: ""
