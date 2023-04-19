@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 // Firebase & databases
 import { app, database } from "./firebaseConfig";
-import { ref, push } from "firebase/database";
+import { ref, onValue } from "firebase/database";
 
 // Components
 import { Form, List } from "./components";
@@ -32,6 +32,7 @@ function App() {
   const [listItems, setListItems] = useState(
     () => JSON.parse(localStorage.getItem("listItems")) || []
   );
+
   const [formData, setFormData] = useState({
     thingsToDo: "",
   });
@@ -41,6 +42,21 @@ function App() {
   }, [listItems]);
 
   const toDoListInDB = ref(database, "thingsToDo");
+
+  onValue(toDoListInDB, function (snapshot) {
+    let listItems = Object.entries(snapshot.val())
+
+    for (let item of listItems) {
+      // console.log(item)
+      addListItem(item)
+    }
+  });
+
+  const addListItem = (item) => {
+    let itemID = item[0];
+
+    console.log(itemID)
+  }
 
   return (
     <div className="App">
