@@ -44,7 +44,7 @@ export default function Form({
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form onSubmit={(e) => onSubmit(e)}>
       <input
         type="text"
         value={formData.thingsToDo}
