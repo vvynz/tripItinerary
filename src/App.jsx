@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // Firebase & databases
 import { app, database } from "./firebaseConfig";
 import { ref, onValue } from "firebase/database";
+import { collection, getDocs, query, onSnapshot } from "firebase/firestore";
 
 // Components
 import { Form, List } from "./components";
@@ -43,20 +44,29 @@ function App() {
   useEffect(() => {
     // localStorage.setItem("listItems", JSON.stringify(listItems));
 
-    onValue(toDoListInDB, function (snapshot) {
-      if (snapshot.exists()) {
-        let listArray = Object.entries(snapshot.val());
-        clearListItems();
-        // console.log(listItems)
-  
-        for (let item of listArray) {
-          // console.log(item)
-          addListItem(item);
-        }
-      } else {
-        console.log("No data available")
-      }
-    });
+    // onValue(toDoListInDB, function (snapshot) {
+    //   if (snapshot.exists()) {
+    //     let listArray = Object.entries(snapshot.val());
+    //     clearListItems();
+    //     // console.log(listItems)
+
+    //     for (let item of listArray) {
+    //       // console.log(item)
+    //       addListItem(item);
+    //     }
+    //   } else {
+    //     console.log("No data available");
+    //   }
+    // });
+
+    const getListItems = async () => {
+      const dbRef = collection(database, "thingsToDo");
+      const data = await getDocs(dbRef);
+
+      setListItems(data.docs.map((doc) => doc.data()));
+    };
+
+    getListItems().catch((err) => console.log(err));
   }, []);
 
   function addListItem(item) {
@@ -73,7 +83,7 @@ function App() {
     const newItems = [...listItems, newItem];
     // console.log(listItems)
     setListItems(newItems);
-  };
+  }
 
   function clearListItems() {
     setListItems([]);
@@ -92,13 +102,11 @@ function App() {
           db={database}
           dbRef={toDoListInDB}
         />
-        {listItems.length !== 0 ? (
-          listItems.map((item, index) => (
-            <List key={index} place={item.thingsToDo} />
-          ))
-        ) : (
-          "Nothing here...yet!"
-        )}
+        {listItems.length !== 0
+          ? listItems.map((item, index) => (
+              <List key={item.id} place={item.thingsToDo} />
+            ))
+          : "Nothing here...yet!"}
       </section>
     </div>
   );
