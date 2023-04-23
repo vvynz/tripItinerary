@@ -28,9 +28,11 @@ function App() {
       if (snapshot.exists()) {
         let listArray = Object.entries(snapshot.val());
         clearListItems();
+        setMessage("");
         setListItems(listArray);
       } else {
-        setMessage("Nothing here....yet!");
+        clearListItems();
+        setMessage("Nothing here yet...!");
       }
     });
   }, []);
@@ -57,14 +59,14 @@ function App() {
           db={database}
           dbRef={toDoListInDB}
         />
-        {listItems.map((item, index) => (
+        {listItems.map((item) => (
           <List
             key={item[0]}
             place={item[1]}
             removeItem={() => removeItem(item[0])}
           />
         ))}
-        {/* {listItems.length ? null : setMessage("nothing here...!")} */}
+        <p className="display-msg">{message}</p>
       </section>
     </div>
   );
