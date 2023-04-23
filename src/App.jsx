@@ -44,36 +44,44 @@ function App() {
   useEffect(() => {
     // localStorage.setItem("listItems", JSON.stringify(listItems));
 
-    // onValue(toDoListInDB, function (snapshot) {
-    //   if (snapshot.exists()) {
-    //     let listArray = Object.entries(snapshot.val());
-    //     clearListItems();
-    //     // console.log(listItems)
+    onValue(toDoListInDB, function (snapshot) {
+      if (snapshot.exists()) {
+        let listArray = Object.entries(snapshot.val());
+        clearListItems();
+        console.log("listArr=", listArray)
+        // console.log(Object.values(snapshot.val()))
+        setListItems(listArray)
 
-    //     for (let item of listArray) {
-    //       // console.log(item)
-    //       addListItem(item);
-    //     }
-    //   } else {
-    //     console.log("No data available");
-    //   }
-    // });
+        // for (let item of listArray) {
+        //   console.log("item=",item)
+        //   addListItem(item);
+        // }
 
-    const getListItems = async () => {
-      const dbRef = collection(database, "thingsToDo");
-      const data = await getDocs(dbRef);
+        // for (let i = 0; i < listArray.length; i++) {
+        //   // console.log(listArray[i])
+        //   addListItem(listArray[i])
+        // }
+      } else {
+        console.log("No data available");
+      }
+    }, []);
 
-      setListItems(data.docs.map((doc) => doc.data()));
-    };
+    // const getListItems = async () => {
+    //   const dbRef = collection(toDoListInDB, "thingsToDo");
+    //   const data = await getDocs(dbRef);
 
-    getListItems().catch((err) => console.log(err));
+    //   setListItems(data.docs.map((doc) => doc.data()));
+    //   console.log(data)
+    // };
+
+    // getListItems().catch((err) => console.log(err));
   }, []);
 
   function addListItem(item) {
     let itemID = item[0];
     let itemVal = item[1];
 
-    console.log(itemVal);
+    // console.log(itemVal);
 
     const newItem = {
       id: itemID,
@@ -81,13 +89,14 @@ function App() {
     };
 
     const newItems = [...listItems, newItem];
-    // console.log(listItems)
+    // console.log("newItems=",newItems)
     setListItems(newItems);
   }
 
   function clearListItems() {
     setListItems([]);
   }
+  console.log("liItems=",listItems)
 
   return (
     <div className="App">
@@ -102,9 +111,9 @@ function App() {
           db={database}
           dbRef={toDoListInDB}
         />
-        {listItems.length !== 0
+        {listItems.length > 0
           ? listItems.map((item, index) => (
-              <List key={item.id} place={item.thingsToDo} />
+              <List key={item[0]} place={item[1]} />
             ))
           : "Nothing here...yet!"}
       </section>
