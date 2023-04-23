@@ -2,10 +2,10 @@ import React from "react";
 
 import "./List.scss";
 
-export default function List({ id, place }) {
+export default function List({ id, place, removeItem }) {
   return (
     <ul>
-      <li key={id}>{place}</li>
+      <li key={id} onClick={removeItem}>{place}</li>
     </ul>
   );
 }

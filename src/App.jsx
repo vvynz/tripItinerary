@@ -2,8 +2,7 @@ import React, { useState, useEffect } from "react";
 
 // Firebase & databases
 import { app, database } from "./firebaseConfig";
-import { ref, onValue } from "firebase/database";
-import { collection, getDocs, query, onSnapshot } from "firebase/firestore";
+import { ref, onValue, remove } from "firebase/database";
 
 // Components
 import { Form, List } from "./components";
@@ -39,6 +38,11 @@ function App() {
     setListItems([]);
   }
 
+  function removeItem(itemID) {
+    let selectedItem = ref(database, `thingsToDo/${itemID}`);
+    remove(selectedItem);
+  }
+
   return (
     <div className="App">
       <h1>NYC Trip Planner</h1>
@@ -54,7 +58,11 @@ function App() {
         />
         {listItems.length > 0
           ? listItems.map((item, index) => (
-              <List key={item[0]} place={item[1]} />
+              <List
+                key={item[0]}
+                place={item[1]}
+                removeItem={() => removeItem(item[0])}
+              />
             ))
           : "Nothing here...yet!"}
       </section>
