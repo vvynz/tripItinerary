@@ -15,8 +15,6 @@ export default function Form({
 
     const newItem = formData.thingsToDo;
 
-    // const newItems = [...listItems, newItem];
-
     // add new list item to db
     push(dbRef, newItem)
       .then(() => {
