@@ -19,6 +19,7 @@ function App() {
   const [formData, setFormData] = useState({
     thingsToDo: "",
   });
+  const [message, setMessage] = useState("");
 
   const toDoListInDB = ref(database, "thingsToDo");
 
@@ -29,7 +30,7 @@ function App() {
         clearListItems();
         setListItems(listArray);
       } else {
-        console.log("No data available");
+        setMessage("Nothing here....yet!");
       }
     });
   }, []);
@@ -56,15 +57,14 @@ function App() {
           db={database}
           dbRef={toDoListInDB}
         />
-        {listItems.length > 0
-          ? listItems.map((item, index) => (
-              <List
-                key={item[0]}
-                place={item[1]}
-                removeItem={() => removeItem(item[0])}
-              />
-            ))
-          : "Nothing here...yet!"}
+        {listItems.map((item, index) => (
+          <List
+            key={item[0]}
+            place={item[1]}
+            removeItem={() => removeItem(item[0])}
+          />
+        ))}
+        {/* {listItems.length ? null : setMessage("nothing here...!")} */}
       </section>
     </div>
   );
