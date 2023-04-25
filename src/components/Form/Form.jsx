@@ -9,6 +9,7 @@ export default function Form({
   setFormData,
   db,
   dbRef,
+  setMessage
 }) {
   const onSubmit = (e) => {
     e.preventDefault();
@@ -18,7 +19,7 @@ export default function Form({
     // add new list item to db
     push(dbRef, newItem)
       .then(() => {
-        alert("Added to db!");
+        // alert("Added to db!");
       })
       .catch((err) => {
         console.log(err.message);
@@ -33,6 +34,10 @@ export default function Form({
     e.preventDefault();
 
     const { name, value } = e.target;
+
+if (value.length === null) {
+  setMessage("")
+}
 
     const newData = { ...formData };
 
