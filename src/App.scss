@@ -6,12 +6,19 @@
 }
 
 .app_list-wrapper {
-  // border: 1px solid black;
+  border: 1px solid black;
 
-  display: block;
+  display: flex;
+  // flex-direction: row;
+  justify-content: space-evenly;
   margin: 0 auto;
-  max-width: 320px;
+  max-width: 750px;
   color: var(--grey-color);
+}
+
+.app_list-container {
+  // padding: 1rem;
+  max-width: 320px;
 }
 
 .display-msg {

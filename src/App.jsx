@@ -66,32 +66,32 @@ function App() {
     <div className="App">
       <h1>NYC Trip Planner</h1>
       <img src={images.logo} />
-      <section className="app_list-wrapper">
-        <Form
-          listItems={listItems}
-          setListItems={setListItems}
-          formData={formData}
-          setFormData={setFormData}
-          db={database}
-          dbRef={toDoListInDB}
-          setMessage={setMessage}
-        />
+      <Form
+        listItems={listItems}
+        setListItems={setListItems}
+        formData={formData}
+        setFormData={setFormData}
+        db={database}
+        dbRef={toDoListInDB}
+        setMessage={setMessage}
+      />
+      <div className="app_list-wrapper">
         <div className="app_list-container">
           {listItems.map((item) => (
             <List
               key={item[0]}
-              place={item[1]}
+              item={item[1]}
               removeItem={() => removeItem(item[0])}
             />
           ))}
         </div>
         <div className="app_list-container">
           {foodList.map((item) => (
-            <List key={item.id} foodItem={item.item} />
+            <List key={item.id} item={item.item} />
           ))}
         </div>
-        <p className="display-msg">{message}</p>
-      </section>
+      </div>
+      <p className="display-msg">{message}</p>
     </div>
   );
 }
