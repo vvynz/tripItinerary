@@ -13,21 +13,6 @@ import { images } from "./constants";
 // stylesheets
 import "./App.scss";
 
-const foodList = [
-  {
-    id: 1,
-    item: "NYC Pizza",
-  },
-  {
-    id: 2,
-    item: "Gopchang",
-  },
-  {
-    id: 3,
-    item: "Shake Shack",
-  },
-];
-
 function App() {
   const [listItems, setListItems] = useState([]);
   const [foodList, setFoodList] = useState([]);
@@ -38,6 +23,7 @@ function App() {
   const [message, setMessage] = useState("");
 
   const toDoListInDB = ref(database, "thingsToDo");
+  const foodListInDB = ref(database, "foodList");
 
   useEffect(() => {
     onValue(toDoListInDB, function (snapshot) {
@@ -68,15 +54,15 @@ function App() {
       <img src={images.logo} />
       <div className="app_list-wrapper">
         <div className="app_list-container">
-        <Form
-        listItems={listItems}
-        setListItems={setListItems}
-        formData={formData}
-        setFormData={setFormData}
-        db={database}
-        dbRef={toDoListInDB}
-        setMessage={setMessage}
-      />
+          <Form
+            listItems={listItems}
+            setListItems={setListItems}
+            formData={formData}
+            setFormData={setFormData}
+            db={database}
+            dbRef={toDoListInDB}
+            setMessage={setMessage}
+          />
           {listItems.map((item) => (
             <List
               key={item[0]}
@@ -86,15 +72,15 @@ function App() {
           ))}
         </div>
         <div className="app_list-container">
-        <Form
-        listItems={foodList}
-        setListItems={setFoodList}
-        formData={formData}
-        setFormData={setFormData}
-        db={database}
-        dbRef={toDoListInDB}
-        setMessage={setMessage}
-      />
+          <Form
+            listItems={foodList}
+            setListItems={setFoodList}
+            formData={formData}
+            setFormData={setFormData}
+            db={database}
+            dbRef={foodListInDB}
+            setMessage={setMessage}
+          />
           {foodList.map((item) => (
             <List key={item.id} item={item.item} />
           ))}
