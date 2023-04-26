@@ -37,6 +37,18 @@ function App() {
         setMessage("Nothing here yet...!");
       }
     });
+
+    onValue(foodListInDB, function (snapshot) {
+      if (snapshot.exists()) {
+        let listArray = Object.entries(snapshot.val());
+        clearListItems();
+        setMessage("");
+        setFoodList(listArray);
+      } else {
+        clearListItems();
+        setMessage("Nothing here yet...!");
+      }
+    });
   }, []);
 
   function clearListItems() {
@@ -82,7 +94,7 @@ function App() {
             setMessage={setMessage}
           />
           {foodList.map((item) => (
-            <List key={item.id} item={item.item} />
+            <List key={item[0]} item={item[1]} />
           ))}
         </div>
       </div>
