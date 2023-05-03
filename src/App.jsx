@@ -28,7 +28,6 @@ function App() {
   useEffect(() => {
     onValue(toDoListInDB, function (snapshot) {
       if (snapshot.exists()) {
-        
         let listArray = Object.entries(snapshot.val());
         clearListItems();
         setMessage("");
@@ -85,7 +84,16 @@ function App() {
           ))}
         </div>
         <div className="app_list-container">
-          <Form
+          {/* <Form
+            listItems={foodList}
+            setListItems={setFoodList}
+            formData={formData}
+            setFormData={setFormData}
+            db={database}
+            dbRef={foodListInDB}
+            setMessage={setMessage}
+          /> */}
+          <FoodList
             listItems={foodList}
             setListItems={setFoodList}
             formData={formData}
@@ -94,7 +102,6 @@ function App() {
             dbRef={foodListInDB}
             setMessage={setMessage}
           />
-          <FoodList />
         </div>
       </div>
       <p className="display-msg">{message}</p>

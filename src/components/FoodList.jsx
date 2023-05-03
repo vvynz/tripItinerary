@@ -1,7 +1,19 @@
 import React from "react";
 
-import List from "./List/List";
+import {Form, List} from "../components";
 
-export default function FoodList() {
-  return("Am food list");
+export default function FoodList({ 
+  listItems,
+  setListItems,
+  db,
+  dbRef,
+  formData, 
+  setFormData,
+  setMessage
+}) {
+  return(
+  <section>
+    {/* <Form 
+    /> */}
+  </section>);
 }
