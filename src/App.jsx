@@ -5,7 +5,7 @@ import { app, database } from "./firebaseConfig";
 import { ref, onValue, remove } from "firebase/database";
 
 // Components
-import { Form, List } from "./components";
+import { FoodList, Form, List } from "./components";
 
 // Assests - images
 import { images } from "./constants";
@@ -28,6 +28,7 @@ function App() {
   useEffect(() => {
     onValue(toDoListInDB, function (snapshot) {
       if (snapshot.exists()) {
+        
         let listArray = Object.entries(snapshot.val());
         clearListItems();
         setMessage("");
@@ -93,9 +94,7 @@ function App() {
             dbRef={foodListInDB}
             setMessage={setMessage}
           />
-          {foodList.map((item) => (
-            <List key={item[0]} item={item[1]} />
-          ))}
+          <FoodList />
         </div>
       </div>
       <p className="display-msg">{message}</p>

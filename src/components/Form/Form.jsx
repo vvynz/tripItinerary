@@ -9,7 +9,7 @@ export default function Form({
   setFormData,
   db,
   dbRef,
-  setMessage
+  setMessage,
 }) {
   const onSubmit = (e) => {
     e.preventDefault();
@@ -35,9 +35,9 @@ export default function Form({
 
     const { name, value } = e.target;
 
-if (value.length === null) {
-  setMessage("")
-}
+    if (value.length === null) {
+      setMessage("");
+    }
 
     const newData = { ...formData };
 
