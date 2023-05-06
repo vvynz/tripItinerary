@@ -1,5 +1,7 @@
 import React from "react";
 
-export default function FoodListForm() {
+export function FoodListForm() {
   return(<p>I am the food list form</p>);
 }
+
+export default FoodListForm;
