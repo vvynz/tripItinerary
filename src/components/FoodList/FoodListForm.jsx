@@ -1,7 +1,21 @@
 import React from "react";
 
 export function FoodListForm() {
-  return(<p>I am the food list form</p>);
+
+  const onSubmit = (e) => {
+    e.preventDefault();
+    alert("submitted!")
+  }
+
+  return(
+    <form onSubmit={onSubmit}>
+      <input
+      type="text"
+      placeholder="things to eat..."
+      name="thingsToEat" />
+      <button type="submit">Add</button>
+    </form>
+  );
 }
 
 export default FoodListForm;

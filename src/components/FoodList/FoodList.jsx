@@ -4,13 +4,13 @@ import { FoodListForm } from "../FoodList/FoodListForm";
 
 export default function FoodList(
   {
-    // listItems,
-    // setListItems,
-    // db,
-    // dbRef,
-    // formData,
-    // setFormData,
-    // setMessage,
+    listItems,
+    setListItems,
+    db,
+    dbRef,
+    formData,
+    setFormData,
+    setMessage,
   }
 ) {
   return (

@@ -16,9 +16,12 @@ import "./App.scss";
 function App() {
   const [listItems, setListItems] = useState([]);
   const [foodList, setFoodList] = useState([]);
-
+  
   const [formData, setFormData] = useState({
     thingsToDo: "",
+  });
+  const [foodListFormData, setFoodListFormData] = useState({
+    thingsToEat: "",
   });
   const [message, setMessage] = useState("");
 
@@ -96,8 +99,8 @@ function App() {
           <FoodList
             listItems={foodList}
             setListItems={setFoodList}
-            formData={formData}
-            setFormData={setFormData}
+            foodListFormData={foodListFormData}
+            setFoodListFormData={setFoodListFormData}
             db={database}
             dbRef={foodListInDB}
             setMessage={setMessage}
