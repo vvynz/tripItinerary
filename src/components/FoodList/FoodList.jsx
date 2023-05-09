@@ -4,18 +4,22 @@ import { FoodListForm } from "../FoodList/FoodListForm";
 
 export default function FoodList(
   {
-    listItems,
-    setListItems,
+    foodLst,
+    setFoodList,
     db,
     dbRef,
-    formData,
-    setFormData,
+    foodListFormData,
+    setFoodListFormData,
     setMessage,
   }
 ) {
   return (
     <section>
-      <FoodListForm />
+      <FoodListForm
+      foodListFormData={foodListFormData}
+      setFoodListFormData={setFoodListFormData}
+      dbRef={dbRef}
+      setMessage={setMessage} />
     </section>
   );
 }
