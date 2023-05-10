@@ -40,18 +40,6 @@ function App() {
         setMessage("Nothing here yet...!");
       }
     });
-
-    onValue(foodListInDB, function (snapshot) {
-      if (snapshot.exists()) {
-        let listArray = Object.entries(snapshot.val());
-        clearListItems();
-        setMessage("");
-        setFoodList(listArray);
-      } else {
-        clearListItems();
-        setMessage("Nothing here yet...!");
-      }
-    });
   }, []);
 
   function clearListItems() {
@@ -87,15 +75,6 @@ function App() {
           ))}
         </div>
         <div className="app_list-container">
-          {/* <Form
-            listItems={foodList}
-            setListItems={setFoodList}
-            formData={formData}
-            setFormData={setFormData}
-            db={database}
-            dbRef={foodListInDB}
-            setMessage={setMessage}
-          /> */}
           <FoodList
             listItems={foodList}
             setListItems={setFoodList}
