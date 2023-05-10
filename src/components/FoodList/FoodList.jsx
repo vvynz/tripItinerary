@@ -8,7 +8,7 @@ import { List } from "../List/List";
 import { onValue } from "firebase/database";
 
 export default function FoodList({
-  foodList,
+  listItems,
   setListItems,
   db,
   dbRef,
@@ -35,10 +35,9 @@ export default function FoodList({
         dbRef={dbRef}
         setMessage={setMessage}
       />
-      {/* {FoodList.map((item) => (
-        // console.log(item)
-        // <List />
-      ))} */}
+      {listItems.map((item) => (
+        <List key={item[0]} item={item[1]} />
+      ))}
     </section>
   );
 }
