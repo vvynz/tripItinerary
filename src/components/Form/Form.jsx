@@ -35,10 +35,6 @@ export default function Form({
 
     const { name, value } = e.target;
 
-    if (value.length === null) {
-      setMessage("");
-    }
-
     const newData = { ...formData };
 
     newData[name] = value;
