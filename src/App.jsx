@@ -50,6 +50,7 @@ function App() {
   function clearListItems() {
     setListItems([]);
   }
+  const dbName = "thingsToDo";
 
   return (
     <div className="App">
@@ -70,7 +71,7 @@ function App() {
             <List
               key={item[0]}
               item={item[1]}
-              removeItem={() => removeItem(item[0])}
+              removeItem={() => removeItem(dbName ,item[0])}
             />
           ))}
         </div>
