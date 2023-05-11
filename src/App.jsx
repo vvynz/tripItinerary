@@ -7,6 +7,9 @@ import { ref, onValue, remove } from "firebase/database";
 // Components
 import { FoodList, Form, List } from "./components";
 
+//Functions
+import hooks from "./hooks";
+
 // Assests - images
 import { images } from "./constants";
 
@@ -16,7 +19,7 @@ import "./App.scss";
 function App() {
   const [listItems, setListItems] = useState([]);
   const [foodList, setFoodList] = useState([]);
-  
+
   const [formData, setFormData] = useState({
     thingsToDo: "",
   });
@@ -27,6 +30,8 @@ function App() {
 
   const toDoListInDB = ref(database, "thingsToDo");
   const foodListInDB = ref(database, "foodList");
+
+  const { removeItem } = hooks();
 
   useEffect(() => {
     onValue(toDoListInDB, function (snapshot) {
@@ -44,11 +49,6 @@ function App() {
 
   function clearListItems() {
     setListItems([]);
-  }
-
-  function removeItem(itemID) {
-    let selectedItem = ref(database, `thingsToDo/${itemID}`);
-    remove(selectedItem);
   }
 
   return (
