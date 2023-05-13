@@ -31,13 +31,13 @@ function App() {
   const toDoListInDB = ref(database, "thingsToDo");
   const foodListInDB = ref(database, "foodList");
 
-  const { removeItem } = hooks();
+  const { clearListItems, removeItem } = hooks();
 
   useEffect(() => {
     onValue(toDoListInDB, function (snapshot) {
       if (snapshot.exists()) {
         let listArray = Object.entries(snapshot.val());
-        clearListItems();
+        clearListItems(setListItems);
         setMessage("");
         setListItems(listArray);
       } else {
@@ -47,9 +47,6 @@ function App() {
     });
   }, []);
 
-  function clearListItems() {
-    setListItems([]);
-  }
   const dbName = "thingsToDo";
 
   return (
@@ -71,12 +68,13 @@ function App() {
             <List
               key={item[0]}
               item={item[1]}
-              removeItem={() => removeItem(dbName ,item[0])}
+              removeItem={() => removeItem(dbName, item[0])}
             />
           ))}
         </div>
         <div className="app_list-container">
           <FoodList
+            clearListItems={clearListItems}
             listItems={foodList}
             setListItems={setFoodList}
             foodListFormData={foodListFormData}

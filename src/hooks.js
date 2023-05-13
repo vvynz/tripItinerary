@@ -10,6 +10,11 @@ export function hooks() {
   }
   hooks.removeItem = removeItem;
 
+  const clearListItems = (state) => {
+    state([]);
+  }
+  hooks.clearListItems = clearListItems;
+
   return hooks;
 }
 

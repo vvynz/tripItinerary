@@ -8,6 +8,7 @@ import { List } from "../List/List";
 import { onValue } from "firebase/database";
 
 export default function FoodList({
+  clearListItems,
   listItems,
   setListItems,
   db,
@@ -22,12 +23,15 @@ export default function FoodList({
     onValue(dbRef, function (snapshot) {
       if (snapshot.exists()) {
         let listArray = Object.entries(snapshot.val());
+        clearListItems(setListItems)
         setListItems(listArray);
       } else {
+        clearListItems(setListItems);
         setMessage("Nothing here yet...!");
       }
     });
   }, []);
+
   return (
     <section>
       <FoodListForm
