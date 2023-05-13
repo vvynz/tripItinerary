@@ -11,21 +11,22 @@ export default function FoodList({
   listItems,
   setListItems,
   db,
+  dbName,
   dbRef,
   foodListFormData,
+  removeItem,
   setFoodListFormData,
   setMessage,
 }) {
-
   useEffect(() => {
-    onValue(dbRef, function(snapshot) {
+    onValue(dbRef, function (snapshot) {
       if (snapshot.exists()) {
         let listArray = Object.entries(snapshot.val());
         setListItems(listArray);
       } else {
         setMessage("Nothing here yet...!");
       }
-    })
+    });
   }, []);
   return (
     <section>
@@ -36,7 +37,11 @@ export default function FoodList({
         setMessage={setMessage}
       />
       {listItems.map((item) => (
-        <List key={item[0]} item={item[1]} />
+        <List
+          key={item[0]}
+          item={item[1]}
+          removeItem={() => removeItem(dbName, item[0])}
+        />
       ))}
     </section>
   );

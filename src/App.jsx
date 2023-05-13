@@ -82,7 +82,9 @@ function App() {
             foodListFormData={foodListFormData}
             setFoodListFormData={setFoodListFormData}
             db={database}
+            dbName={"foodList"}
             dbRef={foodListInDB}
+            removeItem={removeItem}
             setMessage={setMessage}
           />
         </div>
