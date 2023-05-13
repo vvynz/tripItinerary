@@ -24,7 +24,7 @@ function App() {
     thingsToDo: "",
   });
   const [foodListFormData, setFoodListFormData] = useState({
-    thingsToEat: "",
+    foodList: "",
   });
   const [message, setMessage] = useState("");
 

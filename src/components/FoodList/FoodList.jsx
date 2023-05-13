@@ -37,6 +37,7 @@ export default function FoodList({
       <FoodListForm
         foodListFormData={foodListFormData}
         setFoodListFormData={setFoodListFormData}
+        setListItems={setListItems}
         dbRef={dbRef}
         setMessage={setMessage}
       />

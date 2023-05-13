@@ -6,16 +6,25 @@ export function FoodListForm({
   dbRef,
   foodListFormData,
   setFoodListFormData,
+  setListItems,
   setMessage,
 }) {
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const newItem = foodListFormData.thingsToEat;
+    const newItem = foodListFormData.foodList;
 
     push(dbRef, newItem)
-      .then(() => alert("Added to db!"))
-      .catch((err) => console.log(err.message));
+      .then(() => {
+        // alert("Added to db!")
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
+
+    setFoodListFormData({
+      foodList: "",
+    });
   };
 
   const setFormChange = (e) => {
@@ -34,9 +43,10 @@ export function FoodListForm({
     <form onSubmit={onSubmit}>
       <input
         type="text"
+        value={foodListFormData.foodList}
         placeholder="things to eat..."
-        onChange={setFormChange}
-        name="thingsToEat"
+        onChange={(e) => setFormChange(e)}
+        name="foodList"
       />
       <button type="submit">Add</button>
     </form>
