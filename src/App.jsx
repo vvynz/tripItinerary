@@ -64,6 +64,8 @@ function App() {
             dbRef={toDoListInDB}
             setMessage={setMessage}
           />
+          <p className="display-msg">{message}</p>
+          
           {listItems.map((item) => (
             <List
               key={item[0]}
@@ -83,11 +85,11 @@ function App() {
             dbName={"foodList"}
             dbRef={foodListInDB}
             removeItem={removeItem}
+            message={message}
             setMessage={setMessage}
           />
         </div>
       </div>
-      <p className="display-msg">{message}</p>
     </div>
   );
 }

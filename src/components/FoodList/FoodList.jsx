@@ -17,6 +17,7 @@ export default function FoodList({
   foodListFormData,
   removeItem,
   setFoodListFormData,
+  message,
   setMessage,
 }) {
   useEffect(() => {
@@ -41,6 +42,7 @@ export default function FoodList({
         dbRef={dbRef}
         setMessage={setMessage}
       />
+      <p className="display-msg">{message}</p>
       {listItems.map((item) => (
         <List
           key={item[0]}
