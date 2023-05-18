@@ -5,7 +5,7 @@ import { app, database } from "./firebaseConfig";
 import { ref, onValue, remove } from "firebase/database";
 
 // Components
-import { FoodList, Form, List, ToDoList } from "./components";
+import { FoodList, List, ToDoList } from "./components";
 
 //Functions
 import hooks from "./hooks";
@@ -56,7 +56,7 @@ function App() {
       <div className="app_list-wrapper">
         <div className="app_list-container">
           <ToDoList />
-          <Form
+          {/* <Form
             listItems={listItems}
             setListItems={setListItems}
             formData={formData}
@@ -64,7 +64,7 @@ function App() {
             db={database}
             dbRef={toDoListInDB}
             setMessage={setMessage}
-          />
+          /> */}
           {/* <p className="display-msg">{message}</p> */}
 
           {listItems.map((item) => (
