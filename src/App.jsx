@@ -65,7 +65,7 @@ function App() {
             dbRef={toDoListInDB}
             setMessage={setMessage}
           />
-          <p className="display-msg">{message}</p>
+          {/* <p className="display-msg">{message}</p> */}
 
           {listItems.map((item) => (
             <List

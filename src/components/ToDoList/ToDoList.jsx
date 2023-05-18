@@ -1,7 +1,14 @@
 import React from "react";
 
+//Components
+import ToDoListForm from "./ToDoListForm";
+
 function ToDoList() {
-  return("I am the to do List");
+  return(
+    <section>
+      <ToDoListForm />
+    </section>
+  );
 }
 
 export default ToDoList;
