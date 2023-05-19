@@ -47,7 +47,7 @@ function App() {
     });
   }, []);
 
-  const dbName = "thingsToDo";
+  // const dbName = "thingsToDo";
 
   return (
     <div className="App">
@@ -61,7 +61,10 @@ function App() {
           toDoListFormData={toDoListFormData}
           setToDoListFormData={setToDoListFormData}
           db={database}
+          dbName={"thingsToDo"}
           dbRef={toDoListInDB}
+          removeItem={removeItem}
+          message={message}
           setMessage={setMessage}
            />
           {/* <Form
