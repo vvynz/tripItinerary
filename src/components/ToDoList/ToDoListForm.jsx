@@ -2,11 +2,11 @@ import React from "react";
 
 import { push } from "firebase/database";
 
-export default function Form({
+export default function ToDoListForm({
   listItems,
   setListItems,
-  formData,
-  setFormData,
+  toDoListFormData,
+  setToDoListFormData,
   db,
   dbRef,
   setMessage,
@@ -14,7 +14,7 @@ export default function Form({
   const onSubmit = (e) => {
     e.preventDefault();
 
-    const newItem = formData.thingsToDo;
+    const newItem = toDoListFormData.thingsToDo;
 
     // add new list item to db
     push(dbRef, newItem)
@@ -25,7 +25,7 @@ export default function Form({
         console.log(err.message);
       });
 
-    setFormData({
+      setToDoListFormData({
       thingsToDo: "",
     });
   };
@@ -35,18 +35,18 @@ export default function Form({
 
     const { name, value } = e.target;
 
-    const newData = { ...formData };
+    const newData = { ...toDoListFormData };
 
     newData[name] = value;
 
-    setFormData(newData);
+    ssetToDoListFormData(newData);
   };
 
   return (
     <form onSubmit={(e) => onSubmit(e)}>
       <input
         type="text"
-        value={formData.thingsToDo}
+        value={toDoListFormData.thingsToDo}
         onChange={(e) => setFormChange(e)}
         placeholder="things to do..."
         name="thingsToDo"

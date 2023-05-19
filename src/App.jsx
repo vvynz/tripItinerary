@@ -5,7 +5,7 @@ import { app, database } from "./firebaseConfig";
 import { ref, onValue, remove } from "firebase/database";
 
 // Components
-import { FoodList, List, ToDoList } from "./components";
+import { FoodList, List, ToDoList, ToDoListForm } from "./components";
 
 //Functions
 import hooks from "./hooks";
@@ -20,7 +20,7 @@ function App() {
   const [listItems, setListItems] = useState([]);
   const [foodList, setFoodList] = useState([]);
 
-  const [formData, setFormData] = useState({
+  const [toDoListFormData, setToDoListFormData] = useState({
     thingsToDo: "",
   });
   const [foodListFormData, setFoodListFormData] = useState({
@@ -55,7 +55,15 @@ function App() {
       <img src={images.logo} />
       <div className="app_list-wrapper">
         <div className="app_list-container">
-          <ToDoList />
+          <ToDoList
+          listItems={listItems}
+          setListItems={setListItems}
+          toDoListFormData={toDoListFormData}
+          setToDoListFormData={setToDoListFormData}
+          db={database}
+          dbRef={toDoListInDB}
+          setMessage={setMessage}
+           />
           {/* <Form
             listItems={listItems}
             setListItems={setListItems}

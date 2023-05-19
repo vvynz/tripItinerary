@@ -3,10 +3,24 @@ import React from "react";
 //Components
 import ToDoListForm from "./ToDoListForm";
 
-function ToDoList() {
+function ToDoList({
+listItems,
+setListItems,
+toDoListFormData,
+setToDoListFormData,
+dbRef,
+setMessage
+}) {
   return(
     <section>
-      <ToDoListForm />
+      <ToDoListForm 
+      listItems={listItems}
+      setListItems={setListItems}
+      toDoListFormData={toDoListFormData}
+      setToDoListFormData={setToDoListFormData}
+      dbRef={dbRef}
+      setMessage
+       />
     </section>
   );
 }
