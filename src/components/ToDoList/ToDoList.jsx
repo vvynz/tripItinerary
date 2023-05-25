@@ -23,7 +23,7 @@ function ToDoList({
         toDoListFormData={toDoListFormData}
         setToDoListFormData={setToDoListFormData}
         dbRef={dbRef}
-        setMessage
+        setMessage={setMessage}
       />
       <p className="display-msg">{message}</p>
       {listItems.map((item) => (

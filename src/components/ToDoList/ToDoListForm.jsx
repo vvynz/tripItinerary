@@ -22,7 +22,7 @@ export default function ToDoListForm({
         // alert("Added to db!");
       })
       .catch((err) => {
-        console.log(err.message);
+        setMessage(err.message);
       });
 
       setToDoListFormData({
