@@ -39,7 +39,7 @@ export default function ToDoListForm({
 
     newData[name] = value;
 
-    ssetToDoListFormData(newData);
+    setToDoListFormData(newData);
   };
 
   return (

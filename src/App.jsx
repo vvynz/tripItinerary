@@ -41,7 +41,7 @@ function App() {
         setMessage("");
         setListItems(listArray);
       } else {
-        clearListItems();
+        clearListItems(setListItems);
         setMessage("Nothing here yet...!");
       }
     });
@@ -54,20 +54,17 @@ function App() {
       <div className="app_list-wrapper">
         <div className="app_list-container">
           <ToDoList
-          listItems={listItems}
-          setListItems={setListItems}
-          toDoListFormData={toDoListFormData}
-          setToDoListFormData={setToDoListFormData}
-          db={database}
-          dbName={"thingsToDo"}
-          dbRef={toDoListInDB}
-          removeItem={removeItem}
-          message={message}
-          setMessage={setMessage}
-           />
-
-          {/* <p className="display-msg">{message}</p> */}
-
+            listItems={listItems}
+            setListItems={setListItems}
+            toDoListFormData={toDoListFormData}
+            setToDoListFormData={setToDoListFormData}
+            db={database}
+            dbName={"thingsToDo"}
+            dbRef={toDoListInDB}
+            removeItem={removeItem}
+            message={message}
+            setMessage={setMessage}
+          />
         </div>
         <div className="app_list-container">
           <FoodList
