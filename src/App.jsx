@@ -47,8 +47,6 @@ function App() {
     });
   }, []);
 
-  // const dbName = "thingsToDo";
-
   return (
     <div className="App">
       <h1>NYC Trip Planner</h1>
@@ -67,24 +65,9 @@ function App() {
           message={message}
           setMessage={setMessage}
            />
-          {/* <Form
-            listItems={listItems}
-            setListItems={setListItems}
-            formData={formData}
-            setFormData={setFormData}
-            db={database}
-            dbRef={toDoListInDB}
-            setMessage={setMessage}
-          /> */}
+
           {/* <p className="display-msg">{message}</p> */}
 
-          {listItems.map((item) => (
-            <List
-              key={item[0]}
-              item={item[1]}
-              removeItem={() => removeItem(dbName, item[0])}
-            />
-          ))}
         </div>
         <div className="app_list-container">
           <FoodList
