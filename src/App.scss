@@ -5,24 +5,21 @@
   text-align: center;
 }
 
+.app__header {
+  color: var(--grey-color);
+}
+
 .app_list-wrapper {
   // border: 1px solid black;
 
   display: block;
-    // flex-direction: column;
-
-  // display: flex;
-  // // flex-direction: row;
-  // justify-content: space-evenly;
   margin: 0 auto;
-  // max-width: 750px;
   color: var(--grey-color);
 }
 
 .app_list-container {
   // border: 1px solid black;
   margin: 0 auto;
-  // padding: 1rem;
   max-width: 320px;
 }
 
@@ -57,6 +54,17 @@
     height: 2em;
     width: 2em;
     font-size: 1.5rem;
+  }
+
+  button:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+
+  button:active {
+    box-shadow: #d6d6e7 0 3px 7px inset;
+    transform: translateY(-2px);
   }
 }
 

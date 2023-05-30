@@ -50,7 +50,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1>NYC Trip Planner</h1>
+      <h1 className="app__header">NYC Trip Planner</h1>
       <img src={images.logo} />
       <div className="app_list-wrapper">
         <div className="app_list-container">
