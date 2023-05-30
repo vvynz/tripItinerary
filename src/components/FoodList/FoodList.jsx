@@ -24,7 +24,7 @@ export default function FoodList({
     onValue(dbRef, function (snapshot) {
       if (snapshot.exists()) {
         let listArray = Object.entries(snapshot.val());
-        console.log(listArray[0][1])
+        // console.log(listArray[0][1])
         
         listArray[0][1].length === 0 ? alert("Cannot be blank") :
 
