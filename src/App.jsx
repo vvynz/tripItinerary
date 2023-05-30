@@ -26,7 +26,8 @@ function App() {
   const [foodListFormData, setFoodListFormData] = useState({
     foodList: "",
   });
-  const [message, setMessage] = useState("");
+  const [toDoListMsg, setToDoListMsg] = useState("");
+  const [foodListMsg, setFoodListMsg] = useState("");
 
   const toDoListInDB = ref(database, "thingsToDo");
   const foodListInDB = ref(database, "foodList");
@@ -38,11 +39,11 @@ function App() {
       if (snapshot.exists()) {
         let listArray = Object.entries(snapshot.val());
         clearListItems(setListItems);
-        setMessage("");
+        setToDoListMsg("");
         setListItems(listArray);
       } else {
         clearListItems(setListItems);
-        setMessage("Nothing here yet...!");
+        setToDoListMsg("Nothing here yet...!");
       }
     });
   }, []);
@@ -62,8 +63,8 @@ function App() {
             dbName={"thingsToDo"}
             dbRef={toDoListInDB}
             removeItem={removeItem}
-            message={message}
-            setMessage={setMessage}
+            toDoListMsg={toDoListMsg}
+            setToDoListMsg={setToDoListMsg}
           />
         </div>
         <div className="app_list-container">
@@ -77,8 +78,8 @@ function App() {
             dbName={"foodList"}
             dbRef={foodListInDB}
             removeItem={removeItem}
-            message={message}
-            setMessage={setMessage}
+            foodListMsg={foodListMsg}
+            setFoodListMsg={setFoodListMsg}
           />
         </div>
       </div>

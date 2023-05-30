@@ -17,18 +17,22 @@ export default function FoodList({
   foodListFormData,
   removeItem,
   setFoodListFormData,
-  message,
-  setMessage,
+  foodListMsg,
+  setFoodListMsg,
 }) {
   useEffect(() => {
     onValue(dbRef, function (snapshot) {
       if (snapshot.exists()) {
         let listArray = Object.entries(snapshot.val());
+        console.log(listArray[0][1])
+        
+        listArray[0][1].length === 0 ? alert("Cannot be blank") :
+
         clearListItems(setListItems)
         setListItems(listArray);
       } else {
         clearListItems(setListItems);
-        setMessage("Nothing here yet...!");
+        setFoodListMsg("Nothing here yet...!");
       }
     });
   }, []);
@@ -40,10 +44,12 @@ export default function FoodList({
         setFoodListFormData={setFoodListFormData}
         setListItems={setListItems}
         dbRef={dbRef}
-        setMessage={setMessage}
+        setFoodListMsg={setFoodListMsg}
       />
-      <p className="display-msg">{message}</p>
+      <p className="display-msg">{foodListMsg}</p>
       {listItems.map((item) => (
+        // item[1].length === 0? 
+        // setMessage("Cannot be blank") : 
         <List
           key={item[0]}
           item={item[1]}

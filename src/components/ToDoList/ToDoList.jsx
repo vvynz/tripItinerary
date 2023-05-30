@@ -12,8 +12,8 @@ function ToDoList({
   dbName,
   dbRef,
   removeItem,
-  message,
-  setMessage,
+  toDoListMsg,
+  setToDoListMsg,
 }) {
   return (
     <section>
@@ -23,9 +23,9 @@ function ToDoList({
         toDoListFormData={toDoListFormData}
         setToDoListFormData={setToDoListFormData}
         dbRef={dbRef}
-        setMessage={setMessage}
+        setToDoListMsg={setToDoListMsg}
       />
-      <p className="display-msg">{message}</p>
+      <p className="display-msg">{toDoListMsg}</p>
       {listItems.map((item) => (
         <List
           key={item[0]}
