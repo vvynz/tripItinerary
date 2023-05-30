@@ -51,7 +51,7 @@ export default function ToDoListForm({
         placeholder="things to do..."
         name="thingsToDo"
       />
-      <button type="submit">Add</button>
+      <button type="submit">+</button>
     </form>
   );
 }

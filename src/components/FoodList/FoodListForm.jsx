@@ -48,7 +48,7 @@ export function FoodListForm({
         onChange={(e) => setFormChange(e)}
         name="foodList"
       />
-      <button type="submit">Add</button>
+      <button type="submit">+</button>
     </form>
   );
 }
