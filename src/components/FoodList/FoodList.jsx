@@ -39,6 +39,7 @@ export default function FoodList({
 
   return (
     <section>
+      <p className="list_header">Things To Eat:</p>
       <FoodListForm
         foodListFormData={foodListFormData}
         setFoodListFormData={setFoodListFormData}

@@ -40,7 +40,7 @@ export function FoodListForm({
   };
 
   return (
-    <form onSubmit={onSubmit}>
+    <form className="list_form" onSubmit={onSubmit}>
       <input
         type="text"
         value={foodListFormData.foodList}

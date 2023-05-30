@@ -43,7 +43,7 @@ export default function ToDoListForm({
   };
 
   return (
-    <form onSubmit={(e) => onSubmit(e)}>
+    <form className="list_form" onSubmit={(e) => onSubmit(e)}>
       <input
         type="text"
         value={toDoListFormData.thingsToDo}
