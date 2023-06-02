@@ -5,7 +5,7 @@ import { app, database } from "./firebaseConfig";
 import { ref, onValue, remove } from "firebase/database";
 
 // Components
-import { FoodList, List, ToDoList, ToDoListForm } from "./components";
+import { FoodList, List, ToDoList, ToDoListForm, UpcomingTrips } from "./components";
 
 //Functions
 import hooks from "./hooks";
@@ -50,9 +50,10 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="app__header">NYC Trip Planner</h1>
+      <h1 className="app__header">Trip Planner</h1>
       <img src={images.logo} />
       <div className="app_list-wrapper">
+        <UpcomingTrips />
         <div className="app_list-container">
           <ToDoList
             listItems={listItems}
