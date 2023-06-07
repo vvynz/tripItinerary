@@ -52,9 +52,9 @@ function App() {
     <div className="App">
       <h1 className="app__header">Trip Planner</h1>
       <img src={images.logo} />
+      <Popup />
       <div className="app_list-wrapper">
         {/* <UpcomingTrips /> */}
-        <Popup />
         <div className="app_list-container">
           <ToDoList
             listItems={listItems}

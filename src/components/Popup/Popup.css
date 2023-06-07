@@ -1,0 +1,13 @@
+.app__popup {
+  border: 1px solid black;
+  /* display: block; */
+  height: 250px;
+  width: 100%vh;
+}
+
+.app__popup-form {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  
+};
