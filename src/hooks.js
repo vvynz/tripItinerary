@@ -15,6 +15,13 @@ export function hooks() {
   }
   hooks.clearListItems = clearListItems;
 
+  const destinationForm = (e) => {
+    e.preventDefault();
+
+    console.log("I work!")
+  }
+  hooks.destinationForm = destinationForm;
+
   return hooks;
 }
 

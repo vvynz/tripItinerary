@@ -19,6 +19,7 @@ import "./App.scss";
 function App() {
   const [listItems, setListItems] = useState([]);
   const [foodList, setFoodList] = useState([]);
+  const [destination, setDestination] = useState("");
 
   const [toDoListFormData, setToDoListFormData] = useState({
     thingsToDo: "",
@@ -32,7 +33,7 @@ function App() {
   const toDoListInDB = ref(database, "thingsToDo");
   const foodListInDB = ref(database, "foodList");
 
-  const { clearListItems, removeItem } = hooks();
+  const { clearListItems, destinationForm, removeItem } = hooks();
 
   useEffect(() => {
     onValue(toDoListInDB, function (snapshot) {
@@ -52,7 +53,7 @@ function App() {
     <div className="App">
       <h1 className="app__header">Trip Planner</h1>
       <img src={images.logo} />
-      <Popup />
+      <Popup setDestination={setDestination} destinationForm={destinationForm} />
       <div className="app_list-wrapper">
         {/* <UpcomingTrips /> */}
         <div className="app_list-container">
