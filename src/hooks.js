@@ -15,10 +15,10 @@ export function hooks() {
   }
   hooks.clearListItems = clearListItems;
 
-  const destinationForm = (e) => {
+  const destinationForm = (e, state) => {
     e.preventDefault();
 
-    console.log("I work!")
+    state(e.target.value);
   }
   hooks.destinationForm = destinationForm;
 

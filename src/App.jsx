@@ -5,7 +5,14 @@ import { app, database } from "./firebaseConfig";
 import { ref, onValue, remove } from "firebase/database";
 
 // Components
-import { FoodList, List, Popup, ToDoList, ToDoListForm, UpcomingTrips } from "./components";
+import {
+  FoodList,
+  List,
+  Popup,
+  ToDoList,
+  ToDoListForm,
+  UpcomingTrips,
+} from "./components";
 
 //Functions
 import hooks from "./hooks";
@@ -27,6 +34,7 @@ function App() {
   const [foodListFormData, setFoodListFormData] = useState({
     foodList: "",
   });
+  const [destinationFormData, setDestinationFormData] = useState("");
   const [toDoListMsg, setToDoListMsg] = useState("");
   const [foodListMsg, setFoodListMsg] = useState("");
 
@@ -51,9 +59,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1 className="app__header">Trip Planner</h1>
+      <h1 className="app__header">{destination} Trip Planner</h1>
       <img src={images.logo} />
-      <Popup setDestination={setDestination} destinationForm={destinationForm} />
+      <Popup
+        destinationFormData={destinationFormData}
+        setDestinationFormData={setDestinationFormData}
+        setDestination={setDestination}
+        destinationForm={destinationForm}
+      />
       <div className="app_list-wrapper">
         {/* <UpcomingTrips /> */}
         <div className="app_list-container">
