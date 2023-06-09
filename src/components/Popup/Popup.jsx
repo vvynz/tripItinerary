@@ -1,7 +1,7 @@
 import React from "react";
 
 //Stylesheets
-import "./Popup.css";
+import "./Popup.scss";
 
 export default function Popup() {
   return(

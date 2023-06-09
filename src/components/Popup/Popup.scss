@@ -1,0 +1,44 @@
+.app__popup {
+  border: 1px solid black;
+  /* display: block; */
+  height: 250px;
+  width: 100%vh;
+}
+
+.app__popup-form {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+
+  input {
+    background-color: #fff;
+    border: 1px solid #fff;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin: 0rem 1rem;
+  }
+  
+  button {
+    background-color: #fff;
+    border: none;
+    border-radius: 50%;
+    color: var(--grey-color);
+
+    height: 2em;
+    width: 2em;
+    font-size: 1.5rem;
+  }
+
+  button:hover {
+    box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+    transform: translateY(-2px);
+  }
+
+  button:active {
+    box-shadow: #d6d6e7 0 3px 7px inset;
+    transform: translateY(-2px);
+  }
+};
