@@ -26,7 +26,7 @@ import "./App.scss";
 function App() {
   const [listItems, setListItems] = useState([]);
   const [foodList, setFoodList] = useState([]);
-  const [destination, setDestination] = useState("");
+  const [destination, setDestination] = useState([]);
 
   const [toDoListFormData, setToDoListFormData] = useState({
     thingsToDo: "",
@@ -34,7 +34,9 @@ function App() {
   const [foodListFormData, setFoodListFormData] = useState({
     foodList: "",
   });
-  const [destinationFormData, setDestinationFormData] = useState("");
+  const [destinationFormData, setDestinationFormData] = useState({
+    place: ""
+  });
   const [toDoListMsg, setToDoListMsg] = useState("");
   const [foodListMsg, setFoodListMsg] = useState("");
 
